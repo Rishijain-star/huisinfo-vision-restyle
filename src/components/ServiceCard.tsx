@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -23,7 +22,7 @@ const ServiceCard = ({ title, description, icon, color }: ServiceCardProps) => {
         <h3 className="text-xl font-semibold mb-3">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
         <button className="flex items-center text-brand-blue font-medium hover:underline">
-          Meer Informatie
+          More Information
           <ArrowRight size={16} className="ml-2" />
         </button>
       </div>
