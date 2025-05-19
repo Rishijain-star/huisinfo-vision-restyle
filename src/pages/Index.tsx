@@ -1,187 +1,145 @@
 
-import React from 'react';
-import { ArrowRight, Home, Search, FileCheck, Gauge } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import ServiceCard from '../components/ServiceCard';
-import InfoSection from '../components/InfoSection';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HeroSection from '../components/HeroSection';
+import FeaturedProducts from '../components/FeaturedProducts';
+import Testimonials from '../components/Testimonials';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle, Heart, Package, Phone, Shield, Truck } from 'lucide-react';
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <Hero />
+      <Header />
       
-      {/* Services Section */}
-      <section className="py-20 bg-brand-gray">
-        <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-lightBlue font-semibold uppercase tracking-wider">Onze Diensten</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-4">
-              Alles wat u nodig heeft voor uw woning
-            </h2>
-            <p className="text-gray-600">
-              Bij HuisInfo bieden we een uitgebreid pakket aan diensten om u te helpen bij alle aspecten van uw woning, 
-              van inspectie tot verkoop.
+      <main className="flex-grow">
+        <HeroSection />
+        
+        {/* Why Choose Us */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <h2 className="section-title text-center">Why Choose Interstate365</h2>
+            <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+              We are dedicated to providing the highest quality transportation equipment with exceptional service and support.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ServiceCard 
-              title="Woningwaardering" 
-              description="Krijg een nauwkeurige inschatting van de waarde van uw woning gebaseerd op actuele marktdata."
-              icon={<Home size={24} />}
-              color="blue"
-            />
-            <ServiceCard 
-              title="Huisinspectie" 
-              description="Laat uw (toekomstige) woning grondig inspecteren door onze ervaren professionals."
-              icon={<Search size={24} />}
-              color="lightBlue"
-            />
-            <ServiceCard 
-              title="Bouwtechnische keuring" 
-              description="Een diepgaande analyse van de technische staat van het gebouw en mogelijke gebreken."
-              icon={<FileCheck size={24} />}
-              color="blue"
-            />
-            <ServiceCard 
-              title="Energieadvies" 
-              description="Krijg inzicht in de energieprestatie van uw woning en advies over verbeteringen."
-              icon={<Gauge size={24} />}
-              color="lightBlue"
-            />
-          </div>
-          
-          <div className="mt-12 text-center">
-            <button className="custom-button">
-              Alle Diensten Bekijken
-              <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
-      </section>
-      
-      {/* About Section */}
-      <InfoSection 
-        title="Uw betrouwbare partner in huisinformatie"
-        subtitle="Over ons"
-        description="HuisInfo is opgericht in 2015 met als doel consumenten te voorzien van betrouwbare en complete informatie over woningen. Onze experts hebben jarenlange ervaring in de vastgoedsector en bouwtechniek, waardoor we u kunnen voorzien van professioneel en betrouwbaar advies."
-        features={[
-          "Meer dan 10.000 tevreden klanten",
-          "Landelijke dekking in heel Nederland",
-          "Gecertificeerde inspecteurs",
-          "Transparante werkwijze en prijzen"
-        ]}
-        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-        action={
-          <button className="custom-button">
-            Meer Over Ons
-            <ArrowRight size={16} />
-          </button>
-        }
-      />
-      
-      {/* Working Method */}
-      <InfoSection 
-        title="Hoe wij werken"
-        subtitle="Onze werkwijze"
-        description="Onze werkwijze is ontworpen om u zo goed mogelijk te ondersteunen bij het verkrijgen van informatie over uw huidige of toekomstige woning. We zorgen voor een soepel en transparant proces van begin tot eind."
-        features={[
-          "Vrijblijvende intake en offerte",
-          "Grondige inspectie of analyse",
-          "Uitgebreid rapport met bevindingen",
-          "Persoonlijke nabespreking"
-        ]}
-        image="https://images.unsplash.com/photo-1576153192396-180ecef2a715?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-        reversed={true}
-        bgClass="bg-brand-gray"
-        action={
-          <div className="flex flex-wrap gap-4">
-            <button className="custom-button">
-              Werkwijze Bekijken
-              <ArrowRight size={16} />
-            </button>
-            <button className="custom-button-outline">
-              Contact Opnemen
-            </button>
-          </div>
-        }
-      />
-      
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-lightBlue font-semibold uppercase tracking-wider">Wat klanten zeggen</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-4">
-              Ervaringen van onze klanten
-            </h2>
-            <p className="text-gray-600">
-              Ontdek wat onze klanten te zeggen hebben over onze dienstverlening en hoe we hen hebben geholpen.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white border border-gray-100 p-8 rounded-2xl shadow-lg">
-                <div className="flex items-center mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FFD700" viewBox="0 0 16 16">
-                      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                    </svg>
-                  ))}
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="bg-interstate-light rounded-lg p-6 text-center transition-transform hover:translate-y-[-5px]">
+                <div className="bg-interstate-navy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Truck className="w-8 h-8 text-interstate-navy" />
                 </div>
-                <p className="text-gray-600 italic mb-6">
-                  "HuisInfo heeft mij enorm geholpen bij het maken van een keuze voor onze nieuwe woning. De inspectie was grondig en het rapport zeer duidelijk. Dankzij hun advies hebben we een flinke korting op de aankoopprijs kunnen bedingen."
+                <h3 className="font-heading font-semibold text-xl mb-3">Quality Equipment</h3>
+                <p className="text-gray-600">
+                  Carefully selected trucks and trailers that meet our high standards for quality and reliability.
                 </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue font-semibold text-lg">
-                    {item === 1 ? "JV" : item === 2 ? "MB" : "KD"}
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-semibold">
-                      {item === 1 ? "Jan Visser" : item === 2 ? "Monique Bakker" : "Kees de Vries"}
-                    </h4>
-                    <p className="text-sm text-gray-500">
-                      {item === 1 ? "Amsterdam" : item === 2 ? "Rotterdam" : "Utrecht"}
+              </div>
+              
+              <div className="bg-interstate-light rounded-lg p-6 text-center transition-transform hover:translate-y-[-5px]">
+                <div className="bg-interstate-navy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-interstate-navy" />
+                </div>
+                <h3 className="font-heading font-semibold text-xl mb-3">Expert Guidance</h3>
+                <p className="text-gray-600">
+                  Our experienced team provides knowledgeable advice to help you make the best equipment decisions.
+                </p>
+              </div>
+              
+              <div className="bg-interstate-light rounded-lg p-6 text-center transition-transform hover:translate-y-[-5px]">
+                <div className="bg-interstate-navy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-interstate-navy" />
+                </div>
+                <h3 className="font-heading font-semibold text-xl mb-3">Warranty Protection</h3>
+                <p className="text-gray-600">
+                  Comprehensive warranty options to protect your investment and provide peace of mind.
+                </p>
+              </div>
+              
+              <div className="bg-interstate-light rounded-lg p-6 text-center transition-transform hover:translate-y-[-5px]">
+                <div className="bg-interstate-navy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-8 h-8 text-interstate-navy" />
+                </div>
+                <h3 className="font-heading font-semibold text-xl mb-3">Customer Service</h3>
+                <p className="text-gray-600">
+                  Dedicated support throughout the purchase process and beyond, whenever you need assistance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <FeaturedProducts />
+        
+        {/* Call to Action */}
+        <section className="py-16 bg-interstate-navy relative overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+          <div 
+            className="absolute inset-0 bg-cover bg-center z-0" 
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486528003936-70cb14469ebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80')" }}
+          ></div>
+          <div className="container-custom relative z-20">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+                Ready to Find Your Perfect Equipment?
+              </h2>
+              <p className="text-lg text-white/80 mb-8">
+                Our inventory is constantly updated with the latest trucks, trailers, and accessories. Contact us today to discuss your needs.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/inventory" className="btn-secondary">
+                  Browse Inventory
+                </Link>
+                <Link to="/contact" className="btn-outline border-white text-white hover:bg-white/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Contact Sales
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <Testimonials />
+        
+        {/* About Us */}
+        <section className="py-16 bg-interstate-light">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="section-title">Interstate365: Your Trusted Partner</h2>
+                <p className="text-gray-700 mb-4">
+                  At Interstate365, we understand the critical role that reliable equipment plays in the transportation industry. Since our founding, we've been committed to providing high-quality trucks, trailers, and equipment that keep America's supply chains moving.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  Our team brings decades of experience in the commercial transportation sector, giving us the expertise to help you find exactly what your business needs to succeed. We pride ourselves on building lasting relationships with our customers through honest communication, exceptional service, and ongoing support.
+                </p>
+                <Link 
+                  to="/about" 
+                  className="flex items-center text-interstate-navy font-medium hover:text-interstate-gold transition-colors group"
+                >
+                  Learn More About Us
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+              <div className="relative">
+                <div className="rounded-lg overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1580674285051-24639b3ef56c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                    alt="Interstate365 Team" 
+                    className="w-full h-auto"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg max-w-xs">
+                  <div className="flex items-start">
+                    <Package className="w-10 h-10 text-interstate-gold mr-3 flex-shrink-0" />
+                    <p className="text-sm">
+                      <span className="font-bold text-interstate-navy">20+ Years</span> of excellence in the transportation equipment industry
                     </p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Call to Action */}
-      <section className="py-20 bg-brand-blue relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute right-0 top-0 w-96 h-96 bg-brand-lightBlue/20 rounded-full filter blur-3xl"></div>
-          <div className="absolute left-20 bottom-20 w-72 h-72 bg-white/10 rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Klaar om meer te weten te komen over uw woning?
-            </h2>
-            <p className="text-brand-lightBlue/80 mb-8 text-lg">
-              Neem vandaag nog contact met ons op voor een vrijblijvende offerte of om meer informatie te ontvangen over onze diensten.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-brand-blue font-medium px-8 py-3 rounded-md hover:bg-brand-lightBlue transition-colors flex items-center gap-2">
-                Offerte Aanvragen
-                <ArrowRight size={16} />
-              </button>
-              <button className="border-2 border-white text-white font-medium px-8 py-3 rounded-md hover:bg-white/10 transition-colors flex items-center gap-2">
-                Contact Opnemen
-              </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
       
       <Footer />
     </div>
